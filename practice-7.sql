@@ -1,5 +1,11 @@
 -- What is the number of reviews and date of the latest review, by property type?
 
+select distinct property_type, count(b.id) as review_nbr, max(date_reviewed) as last_rvw_dt
+from listings a
+inner join reviews b on a.id=b.listing_id
+group by 1
+order by 1;
+
 -- +-------------------------------------+----------+----------------------------+
 -- | Boat                                | 2        | 2021-06-19                 |
 -- | Entire bungalow                     | 424      | 2021-10-18                 |
